@@ -9,6 +9,9 @@
 
 version = 1.1
 
+; set only_https to accept https call only
+only_https = 1
+
 ; wsdl for service
 wsdl = openquestion.wsdl
 
