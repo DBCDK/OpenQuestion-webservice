@@ -62,7 +62,6 @@ class openQuestion extends webServiceServer {
             if (empty($question_end_point)) {
               $question_end_point = $this->end_point[$this->default_end_point];
             }
-die($question_end_point);
             $this->curl->set_post($post_arr);
             $this->curl->set_url($question_end_point);
             $this->watch->start('curl');
@@ -76,7 +75,7 @@ die($question_end_point);
             } else {
                 if ($curl_err['http_code'] < 200 || $curl_err['http_code'] > 299)
                     verbose::log(FATAL, 'Endpoint http-error: ' . $curl_err['http_code'] . 
-                                        ' from: ' . $this->config->get_value('question_end_point', 'setup'));
+                                        ' from: ' . $question_end_point);
                 verbose::log(DEBUG, 'createQuestion:: Rejected question: ' . 
                                     str_replace(array("\n", '    '), '', print_r($post_arr, TRUE)) . 
                                     ' With result: ' . $curl_result);
